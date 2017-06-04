@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+
+    <h1 class="center-block" style="width:500px; padding:15px;">3D sound VS NORMAL</h1>
+    <script>
+        var cur = 1;
+        $(function () {
+            $("#pattern").click(function () {
+                cur = (cur + 1) % 3;
+                alert("pattern " + cur);
+                $("#curParttern").html(cur);
+            });
+
+        });
+
+    </script>
+{% endblock content %}

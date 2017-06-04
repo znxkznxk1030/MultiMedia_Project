@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}sound_list{% endblock %}
+
+{% block content %}
+
+    <div>
+        <h1 class="center-block">음악 리스트</h1>
+        <br/>
+        <a href="{% url 'user_sound:new' %}">추가</a>
+    </div>
+    {% for sound in sounds %}
+        <a href="{% url 'user_sound:detail' pk=sound.id %}"><h2>{{ sound.name }}</h2></a>
+        <a href="{% url 'user_sound:delete' pk=sound.id %}"><h4>삭제</h4></a>
+        <br/>
+    {% endfor %}
+
+{% endblock %}

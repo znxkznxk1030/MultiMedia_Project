@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}sound_detail{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <h1 class="center-block" style="width:500px; padding:15px;">{{ sound.name }}</h1>
+        <div class="col-sm-12">{{ sound.description }}</div>
+        <br/>
+        <div class="col-sm-5">
+            <div>
+                <h3>3D SOUND</h3>
+                <audio id="player" src="{{ sound.src.url }}" loop="loop" controls="controls">
+                    Your browser does not support the audio element. Sorry.
+                </audio>
+            </div>
+            <div class="center-block" style="width:400px; padding:15px;">
+                <h4 class="col-sm-3">Speed</h4>
+                <button type="button" class="btn btn-primary btn-sm col-sm-1" id="speedUp">&uparrow;</button>
+                <button type="button" class="btn btn-primary btn-sm col-sm-1" id="speedDown">&downarrow;</button>
+            </div>
+            <br/>
+            <div class="center-block" style="width:400px; padding:15px;">
+                <h4 class="col-sm-3">Pattern</h4>
+                <button type="button" class="btn btn-primary btn-sm col-sm-1" id="pattern">P</button>
+                <div id="curParttern" class="col-sm-1">1</div>
+            </div>
+        </div>
+
+        <div class="col-sm-5">
+            <h3>NORMAL SOUND</h3>
+            <audio src="{{ sound.src.url }}" loop="loop" controls="controls">
+                Your browser does not support the audio element. Sorry.
+            </audio>
+        </div>
+    </div>
+    <div style="padding-bottom:100px;">
+
+    </div>
+{% endblock %}
+
+{% block javacript %}
+    <script>
+        var cur = 1;
+        $(function () {
+            $("#pattern").click(function () {
+                cur = (cur + 1) % 3;
+                alert("pattern " + cur);
+                $("#curParttern").html(cur);
+            });
+        });
+
+    </script>
+{% endblock %}
