@@ -21,24 +21,40 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="description">상세 설명</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control " id="description" name="description" value="{{ sound.description }}">
+                    <input type="text" class="form-control " id="description" name="description"
+                           value="{{ sound.description }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-4 control-label" for="src">음악파일</label>
                 <div class="col-md-4">
-                    <input type="file" class="form-control" id="src" name="src">
+                    <input type="file" class="form-control" id="src" name="src" accept="audio/*">
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <input type="submit" id="save" class="btn btn-primary" value="저장"/>
+                    <input type="submit" id="save" onClick="return validation()" class="btn btn-primary" value="저장"/>
                 </div>
             </div>
         </form>
     </div>
 
+{% endblock %}
+{% block javacript %}
+    <script>
+        function validation() {
+            var size = 1024 * 1024 * 20;
+            var file = document.getElementById("src");
+            var file_size = file.files[0].size;
+            var file_type = file.files[0].type;
+
+            if(file_size > size){
+                alert('File Size is too large');
+                return false;
+            }
+        }
+    </script>
 {% endblock %}

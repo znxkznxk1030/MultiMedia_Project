@@ -2,9 +2,10 @@ from django.views.generic.base import View
 from django.shortcuts import redirect
 
 from sound.models import Sound
+from user.mixin import AdminRequiredMixin
 
 
-class SoundCreateView(View):
+class SoundCreateView(AdminRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         name = request.POST.get('name')
         description = request.POST.get('description')

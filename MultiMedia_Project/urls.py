@@ -19,11 +19,16 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from .views import home
+from user.views import UserCreateView, UserCreateDoneTV
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
 
+    # --- Registration Url
+    url(r'^account/', include('django.contrib.auth.urls')),
+    url(r'^account/register/$', UserCreateView.as_view(), name='register'),
+    url(r'^account/register/done/$', UserCreateDoneTV.as_view(), name='register_done'),
 
     url(r'^user_sound/', include('sound.urls', namespace='user_sound')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
