@@ -3,36 +3,51 @@
 {% block title %}sound_detail{% endblock %}
 
 {% block content %}
-    <div class="col-md-12">
-        <h1 class="center-block" style="width:500px; padding:15px;">{{ sound.name }}</h1>
-        <div class="col-sm-12">{{ sound.description }}</div>
-        <br/>
-        <div class="col-sm-5">
-            <div>
-                <h3>3D SOUND</h3>
-                <audio id="player" src="{{ sound.src.url }}" loop="loop" controls="controls">
+    <div class="col-md-12 card">
+        <div class="card-header" data-background-color="green">
+            <h1 class="center-block title" style="padding:15px;">{{ sound.name }}</h1>
+            <p class="category" style="padding:10px;">Description: {{ sound.description }}</p>
+        </div>
+
+        <div class="card" style="padding:15px;">
+            <div class="card-content">
+                <h3 class="card-header" data-background-color="red">3D SOUND</h3>
+                <audio id="player" class="card" src="{{ sound.src.url }}" loop="loop" controls="controls">
                     Your browser does not support the audio element. Sorry.
                 </audio>
             </div>
-            <div class="center-block" style="width:400px; padding:15px;">
-                <h4 class="col-sm-3">Speed</h4>
-                <button type="button" class="btn btn-primary btn-sm col-sm-1" id="speedUp">&uparrow;</button>
-                <button type="button" class="btn btn-primary btn-sm col-sm-1" id="speedDown">&downarrow;</button>
+
+            <div class="card card-stats" style="padding:15px;">
+                <h3 class="card-header">3D Sound Controller</h3>
+                <div class="card-content">
+                    <div class="col-sm-3">
+                        <h4 class="col-md-4">Speed</h4>
+                        <button type="button" class="btn btn-warning col-md-3" id="speedDown">
+                            <i class="material-icons">fast_rewind</i>
+                        </button>
+                        <button type="button" class="btn btn-warning col-md-3" id="speedUp">
+                            <i class="material-icons">fast_forward</i>
+                        </button>
+                    </div>
+                    <div class="col-sm-3">
+                        <h4 class="col-md-4">Pattern</h4>
+                        <button type="button" class="btn col-md-7 btn-success" id="pattern">
+                            <i class="material-icons col-md-2">repeat</i>
+                            <div id="curParttern" class="col-sm-1">1</div>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <br/>
-            <div class="center-block" style="width:400px; padding:15px;">
-                <h4 class="col-sm-3">Pattern</h4>
-                <button type="button" class="btn btn-primary btn-sm col-sm-1" id="pattern">P</button>
-                <div id="curParttern" class="col-sm-1">1</div>
-            </div>
+
         </div>
 
-        <div class="col-sm-5">
-            <h3>NORMAL SOUND</h3>
-            <audio src="{{ sound.src.url }}" loop="loop" controls="controls">
+        <div class="card" style="padding:15px;">
+            <h3 class="card-header" data-background-color="blue">NORMAL SOUND</h3>
+            <audio class="card" src="{{ sound.src.url }}" loop="loop" controls="controls">
                 Your browser does not support the audio element. Sorry.
             </audio>
         </div>
+
     </div>
     <div style="padding-bottom:100px;">
 

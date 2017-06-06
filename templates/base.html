@@ -5,28 +5,57 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock title %}</title>
 
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+
+    <!-- CSS files -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/material-dashboard.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/documentation.css" %}">
+
     <script src="{% static "js/hrtf.js" %}"></script>
     <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/bootstrap-notify.js" %}"></script>
+    <script src="{% static "js/chartist.min.js" %}"></script>
+    <script src="{% static "js/material.min.js" %}"></script>
+    <script src="{% static "js/material-dashboard.js" %}"></script>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    {#    <!-- Latest compiled and minified CSS -->#}
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"#}
+    {#          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
+    {##}
+    {#    <!-- Optional theme -->#}
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"#}
+    {#          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">#}
 
 </head>
 <body>
-<header>
-    {% include "_header.html" %}
-</header>
-{% block content %}
-{% endblock content %}
-<footer class="bg-inverse">
-    {% include "_footer.html" %}
-</footer>
+<div class="wrapper">
+    <header>
+        {% include "_header.html" %}
+    </header>
 
+    <div class="page-header header-filter" style="background-image: url('{% static "img/cover.jpeg" %}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="title text-center">3D Sound Web Player</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container main main-raised">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <footer class="container">
+        {% include "_footer.html" %}
+    </footer>
+</div>
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
+<nav class="navbar navbar-info navbar-color-on-scroll navbar-fixed-top">
+    <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -25,14 +25,30 @@
                 </li>
             </ul>
 
-
+            <!-- account settings -->
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_active %}
-                    <a href="{% url 'password_change' %}">Change Password /</a>
-                    <a href="{% url 'logout' %}">Logout</a>
+                    <li>
+                        <a href="{% url 'password_change' %}">
+                            <i class="material-icons">build</i>Change Password
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">
+                            <i class="material-icons">delete_forever</i>Logout
+                        </a>
+                    </li>
                 {% else %}
-                    <a href="{% url 'login' %}" class="navbar-login">Login /</a>
-                    <a href="{% url 'register' %}">Register</a>
+                    <li>
+                        <a href="{% url 'login' %}" class="navbar-login">
+                            <i class="material-icons">person</i>Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'register' %}">
+                            <i class="material-icons">account_circle</i> Register
+                        </a>
+                    </li>
                 {% endif %}
             </ul>
         </div><!-- /.navbar-collapse -->
