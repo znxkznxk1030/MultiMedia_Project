@@ -7,19 +7,27 @@
     <div class="card">
         <div class="card-header" data-background-color="blue">
             <h1 class="center-block text-center">Music List</h1>
-            <br/>
-            {% if user.is_staff %}
-                <a href="{% url 'user_sound:new' %}">ADD</a>
-            {% endif %}
         </div>
-        <div class="card-content">
+        <div class="card-content card">
             {% for sound in sounds %}
-                <a href="{% url 'user_sound:detail' pk=sound.id %}"><h3>{{ sound.name }}</h3></a>
-                {% if user.is_staff %}
-                    <a href="{% url 'user_sound:delete' pk=sound.id %}"><h4>DEL</h4></a>
-                {% endif %}
-                <br/>
+                <div class="card-content">
+                        <a href="{% url 'user_sound:detail' pk=sound.id %}"><h2>{{ sound.name }}</h2></a>
+                        {% if user.is_staff %}
+                            <button type="button" onclick="location.href = '{% url 'user_sound:delete' pk=sound.id %}'"
+                                    class="btn btn-info btn-round">
+                                DEL
+                            </button>
+                        {% endif %}
+                </div>
             {% endfor %}
+        </div>
+        <div class="card-footer">
+            {% if user.is_staff %}
+                <button type="button" onclick="location.href = '{% url 'user_sound:new' %}'"
+                        class="btn btn-warning">
+                    ADD
+                </button>
+            {% endif %}
         </div>
     </div>
 

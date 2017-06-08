@@ -4,42 +4,45 @@
 
 {% block content %}
 
-    <div class="reg-header center-block" style="width: 300px;padding:15px;">
-        <legend>Sound 등록</legend>
-    </div>
-    <div class="container content md-margin-bottom-40">
-        <form action="{% url "user_sound:create" %}" class="form-horizontal"
-              method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="name">이름</label>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="name" name="name" value="{{ sound.name }}">
+    <div class="card">
+        <div class="card-header" data-background-color="green">
+            <h1 class="text-center">Sound 등록</h1>
+        </div>
+        <div class="card-content">
+            <form action="{% url "user_sound:create" %}" class="form-horizontal"
+                  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="name">이름</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="name" name="name" value="{{ sound.name }}">
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="description">상세 설명</label>
-                <div class="col-md-4">
-                    <input type="text" class="form-control " id="description" name="description"
-                           value="{{ sound.description }}">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="description">상세 설명</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control " id="description" name="description"
+                               value="{{ sound.description }}">
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="src">음악파일</label>
-                <div class="col-md-4">
-                    <input type="file" class="form-control" id="src" name="src" accept="audio/*">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="src">음악파일</label>
+                    <div class="col-md-4">
+                        <input type="file" class="form-control" id="src" name="src" accept="audio/*">
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <input type="submit" id="save" onClick="return validation()" class="btn btn-primary" value="저장"/>
+                <div class="form-group card-footer">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <input type="submit" id="save" onClick="return validation()" class="btn btn-primary"
+                               value="저장"/>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
 {% endblock %}
@@ -51,7 +54,7 @@
             var file_size = file.files[0].size;
             var file_type = file.files[0].type;
 
-            if(file_size > size){
+            if (file_size > size) {
                 alert('File Size is too large');
                 return false;
             }

@@ -85,11 +85,19 @@ try {
         }
 
         function speedUp() {
+            var temp = speed;
             speed += 0.03;
+            if (speed > 3.00) {
+                speed = temp;
+            }
         }
 
         function speedDown() {
+            var temp = speed;
             speed -= 0.03;
+            if (speed <= 0) {
+                speed = temp;
+            }
         }
 
         function modifyPattern() {
