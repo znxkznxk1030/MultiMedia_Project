@@ -9,8 +9,10 @@ import struct
 import pydub
 from pydub import AudioSegment
 
+from MultiMedia_Project.settings import DIRECT_ROOT
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-file_DIR = BASE_DIR + "/sound/"
+file_DIR = DIRECT_ROOT
 
 aiz = "00"
 hl_file = file_DIR + "L0e0" + aiz + "a.wav"
