@@ -11,7 +11,7 @@
 
         <div class="card" style="padding:15px;">
             <div class="card-content">
-                <h3 class="card-header" data-background-color="red">3D SOUND</h3>
+                <h3 class="card-header" data-background-color="red">HRTF SOUND</h3>
 
                 <div id="sound_3d" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
@@ -21,7 +21,7 @@
             </div>
 
             <div class="card card-stats" style="padding:15px;">
-                <h3 class="card-header">3D Sound Controller</h3>
+                <h3 class="card-header">HRTF Sound Controller</h3>
                 <div class="card-content">
                     <div class="col-sm-3">
                         <h4 class="col-md-4">Speed</h4>
@@ -45,6 +45,27 @@
 
         <div class="card" style="padding:15px;">
             <h3 class="card-header" data-background-color="blue">NORMAL SOUND</h3>
+            <audio class="card" src="{{ sound.src.url }}" loop="loop" controls="controls">
+                Your browser does not support the audio element. Sorry.
+            </audio>
+        </div>
+
+        <div class="card" style="padding:15px;">
+            <h3 class="card-header" data-background-color="purple">Primary SOUND</h3>
+            <audio class="card" src="{{ sound.src.url }}" loop="loop" controls="controls">
+                Your browser does not support the audio element. Sorry.
+            </audio>
+        </div>
+
+        <div class="card" style="padding:15px;">
+            <h3 class="card-header" data-background-color="green">Ambient SOUND</h3>
+            <audio class="card" src="{{ sound.src.url }}" loop="loop" controls="controls">
+                Your browser does not support the audio element. Sorry.
+            </audio>
+        </div>
+
+        <div class="card" style="padding:15px;">
+            <h3 class="card-header" data-background-color="black">Cut Frequency SOUND</h3>
             <audio class="card" src="{{ sound.src.url }}" loop="loop" controls="controls">
                 Your browser does not support the audio element. Sorry.
             </audio>
