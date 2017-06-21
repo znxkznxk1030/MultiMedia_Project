@@ -9,6 +9,13 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+DIRECT_ROOT = os.path.join(
+    BASE_DIR,
+    "dist",
+    "media"
+)
+
+
 # Media files
 MEDIA_ROOT = os.path.join(
     PROJECT_ROOT_DIR,

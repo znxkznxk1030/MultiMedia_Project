@@ -11,8 +11,14 @@ class Sound(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField('Sound Description', blank=True)
     src = models.FileField(storage=FileSystemStorage(settings.MEDIA_ROOT),
-                           default='settings.MEDIA_ROOT/example.mp3',
+                           default='settings.MEDIA_ROOT/gd.mp3',
                            upload_to='user_sound')
+    src_primary = models.FileField(storage=FileSystemStorage(settings.MEDIA_ROOT),
+                                   default='settings.MEDIA_ROOT/gd_primary.wav',
+                                   upload_to='user_sound')
+    src_ambient = models.FileField(storage=FileSystemStorage(settings.MEDIA_ROOT),
+                                   default='settings.MEDIA_ROOT/gd_ambient.wav',
+                                   upload_to='user_sound')
     author = models.ForeignKey(User, default=1)
 
     def __str__(self):

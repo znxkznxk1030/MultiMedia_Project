@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^account/register/done/$', UserCreateDoneTV.as_view(), name='register_done'),
 
     url(r'^user_sound/', include('sound.urls', namespace='user_sound')),
+    url(r'^sound_process', include('sound_process.urls', namespace='sound_process')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,6 +2,7 @@ from django.views.generic.base import View
 from django.shortcuts import redirect
 
 from sound.models import Sound
+from sound_process.reverb import reverb
 from user.mixin import AdminRequiredMixin
 
 
@@ -15,5 +16,8 @@ class SoundCreateView(AdminRequiredMixin, View):
             description=description,
             src=src,
         )
+        # Sound.objects.select_for_update()
+
+        reverb(sound.id)
 
         return redirect('user_sound:list')

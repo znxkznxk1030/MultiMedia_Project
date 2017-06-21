@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="src">음악파일</label>
                     <div class="col-md-4">
-                        <input type="file" class="form-control" id="src" name="src" accept="audio/*">
+                        <input type="file" class="form-control" id="src" name="src" accept=".wav, .mp3">
                     </div>
                 </div>
 
@@ -59,5 +59,24 @@
                 return false;
             }
         }
+
+
+        $(function () {
+            alert("start ajax!")
+            $('#save').click(function () {
+                alert("click!")
+                var formData = new FormData($('#src')[0]);
+                $.ajax({
+                    url: '/sound_process',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    type: 'POST',
+                    success: function (result) {
+                        alert("업로드 성공!!");
+                    }
+                });
+            })
+        });
     </script>
 {% endblock %}
