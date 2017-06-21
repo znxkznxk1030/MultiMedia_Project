@@ -19,6 +19,9 @@ class Sound(models.Model):
     src_ambient = models.FileField(storage=FileSystemStorage(settings.MEDIA_ROOT),
                                    default='settings.MEDIA_ROOT/gd_ambient.wav',
                                    upload_to='user_sound')
+    src_cut = models.FileField(storage=FileSystemStorage(settings.MEDIA_ROOT),
+                               default='settings.MEDIA_ROOT/saw_cut_off_frequency.wav',
+                               upload_to='user_sound')
     author = models.ForeignKey(User, default=1)
 
     def __str__(self):
